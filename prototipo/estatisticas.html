@@ -4,19 +4,80 @@
         
         <meta charset="utf-8" />
         
-		<title> Estátisticas - Inspetor PAC </title>
+		<title> Estatísticas - Inspetor PAC </title>
 		
 		<link href="css/bootstrap.css" rel="stylesheet" />
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
 		
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+        
+            function DegreesToRadians(XPosition, YPosition, Radius, StartPoint, Degrees)
+            {
+                var ValueInRadians = ( Degrees - StartPoint ) * Math.PI / 180;
+                return Coordinates = 
+                {
+                    x: XPosition + ( Radius * Math.cos(ValueInRadians) ),
+                    y: YPosition + ( Radius * Math.sin(ValueInRadians) )
+                }
+            }
+            
+            function MakeArc(X, Y, Radius, StartPoint, StartAngle, EndAngle)
+            {
+                var SplineStart = DegreesToRadians(X, Y, Radius, StartPoint, EndAngle);
+                var SplineEnd = DegreesToRadians(X, Y, Radius, StartPoint, StartAngle);
+                
+                var bRotateArc = EndAngle - StartAngle <= 180 ? "0" : "1";
+                
+                var ArcData = 
+                [
+                    "M", SplineStart.x, SplineStart.y,
+                    "A", Radius, Radius, 0, bRotateArc, 0, SplineEnd.x, SplineEnd.y
+                ];
+               
+                return ArcData.join(" ");
+            }
+            
+            $(window).load(function() 
+            {
+                var GraphStartPoint = 90;
+                
+                $(".circles-wrp").each(function()
+                {
+                    var SVNElement = $(this).find("svg");
+                    var DrawingPaths = $(this).find("path");
+                    
+                    var GraphX = $(SVNElement).width() / 2;
+                    var GraphY = $(SVNElement).height() / 2;
+                    
+                    var Background = $(DrawingPaths)[0];
+                    var Progress = $(DrawingPaths)[1];
+                    var Text = $(this).find(".circles-number");
+                    
+                    if(Progress != null && Background != null && Text != null)
+                    {
+                        var CompletionPercentage = Math.random();
+                        var PercentageToDegress = Math.floor(CompletionPercentage * 360);
+                        
+                        $(Progress).attr("d", MakeArc(GraphX, GraphY, 100, GraphStartPoint, 0, PercentageToDegress));
+                        $(Background).attr("d", MakeArc(GraphX, GraphY, 100, GraphStartPoint, PercentageToDegress, 360));
+                        $(Text).html(Math.floor(CompletionPercentage * 100));
+                    }            
+                }); 
+            });
+        
+        </script>
+        
 	</head>
     <body>
         <div class="full-navigation1 full-navigation2">
 			<div class="container">
 				<div class="full-navigation-left full-navigation-left-one">
-					<a href="#"><img src="images/lo.png" alt="" /></a>
+					<a href="#">
+                        <img src="images/lo.png" alt="" />
+                    </a>
 				</div>
 				
 				<div class="full-navigation-right">
@@ -26,7 +87,7 @@
 						</span>
 						<script>
 							$( "span.nav" ).click(function() {
-							  $( "ul.top-nav" ).slideToggle( "slow", function() {
+							  $( "ul.top-nav" ).slideToggle("slow", function() {
 								// Animation complete.
 							  });
 							});
@@ -34,22 +95,34 @@
 
 						<ul class="top-nav" >
 							<li>
-                                <a href="#">Principal</a>
+                                <a href="index.html"> Principal </a>
                             </li>                                             
 							<li>
-                                <a href="#">Busca</a>
+                                <a href="#"> Busca </a>
                             </li>
 							<li>
-                                <a href="#">Estat�sticas</a>
+                                <a> Estatísticas </a>
                             </li>  
 						</ul>
 					</div>
 					
-					<div class="clearfix"></div>
+					<div class="clearfix"> </div>
 				</div>
 				
 				<div class="clearfix"> </div>
 			</div>
 		</div>   
+        
+        <div class="circles-wrp" style="position:relative; display:inline-block;">
+            <svg width="230" height="230">
+                <path fill="none" stroke="#eaecec" stroke-width="30"></path>
+                <path fill="none" stroke="#ee4332" stroke-width="30"></path>
+            </svg>
+            <div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:80.5px; height:230px; line-height:230px;">
+                <span class="circles-number">5</span>
+                <span class="circles-text">%</span>
+            </div>
+        </div>
+ 
     </body>
 </html>
