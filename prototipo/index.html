@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Protótipo - Inspetor PAC</title>
+		
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYdKRBBD_JodRHd_91tAUgA9EXKAT34xk&callback=initMap"></script>
+
+		
+		<style type="text/css">
+			#map {
+				height: 100px;
+				background-color: #f00;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function initMap() {
+			  // Create a map object and specify the DOM element for display.
+			  var map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: -34.397, lng: 150.644},
+				scrollwheel: false,
+				zoom: 8
+			  });
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="full-navigation1 full-navigation2">
+			<div class="container">
+				<div class="full-navigation-left full-navigation-left-one">
+					<a href="#"><img src="images/lo.png" alt="" /></a>
+				</div>
+				
+				<div class="full-navigation-right">
+					<div class="full-navigation-right2">
+						<span class="nav">
+							<i class="fa fa-bars"></i>
+						</span>
+						<script>
+							$( "span.nav" ).click(function() {
+							  $( "ul.top-nav" ).slideToggle( "slow", function() {
+								// Animation complete.
+							  });
+							});
+						</script>
+
+						<ul class="top-nav" >
+							<li><a href="#">Principal</a></li>                                             
+							<li><a href="#">Busca</a></li>
+							<li><a href="#">Estatísticas</a></li>  
+						</ul>
+					</div>
+					
+					<div class="clearfix"></div>
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		
+		<div class="banner-top7">
+			<div class="container">
+				<div class="banner-matter7">
+					<h4>Inspetor PAC</h4>
+					<p>Digite um Estado ou Município abaixo para buscar os empreendimentos.</p>
+					<div class="search">
+						<form>
+					  	     <input type="text" name="text_busca" id="text_busca" placeholder="Digite o Estado ou município aqui">
+					  	     <input type="submit" value="">
+					  	  </form>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		<div id="map">
+		</div>
+	</body>
+</html>
