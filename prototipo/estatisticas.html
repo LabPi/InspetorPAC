@@ -11,63 +11,35 @@
 		<link href="css/style.css" rel="stylesheet" />
 		
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/circles.js"></script>
         
         <script type="text/javascript">
         
-            function DegreesToRadians(XPosition, YPosition, Radius, StartPoint, Degrees)
+            $(window).load(function()
             {
-                var ValueInRadians = ( Degrees - StartPoint ) * Math.PI / 180;
-                return Coordinates = 
-                {
-                    x: XPosition + ( Radius * Math.cos(ValueInRadians) ),
-                    y: YPosition + ( Radius * Math.sin(ValueInRadians) )
-                }
-            }
-            
-            function MakeArc(X, Y, Radius, StartPoint, StartAngle, EndAngle)
-            {
-                var SplineStart = DegreesToRadians(X, Y, Radius, StartPoint, EndAngle);
-                var SplineEnd = DegreesToRadians(X, Y, Radius, StartPoint, StartAngle);
-                
-                var bRotateArc = EndAngle - StartAngle <= 180 ? "0" : "1";
-                
-                var ArcData = 
+                var colors = 
                 [
-                    "M", SplineStart.x, SplineStart.y,
-                    "A", Radius, Radius, 0, bRotateArc, 0, SplineEnd.x, SplineEnd.y
+                    ['#eaecec', '#ee4332'], 
+                    ['#eaecec', '#ffd915'], 
+                    ['#eaecec', '#3591cf'], 
+                    ['#eaecec', '#2fc26e']
                 ];
-               
-                return ArcData.join(" ");
-            }
-            
-            $(window).load(function() 
-            {
-                var GraphStartPoint = 90;
-                
-                $(".circles-wrp").each(function()
+                                    
+                var child = $("#circles-1");
+                var percentage = Math.floor(Math.random() * 100);
+                                                
+                Circles.create(
                 {
-                    var SVNElement = $(this).find("svg");
-                    var DrawingPaths = $(this).find("path");
-                    
-                    var GraphX = $(SVNElement).width() / 2;
-                    var GraphY = $(SVNElement).height() / 2;
-                    
-                    var Background = $(DrawingPaths)[0];
-                    var Progress = $(DrawingPaths)[1];
-                    var Text = $(this).find(".circles-number");
-                    
-                    if(Progress != null && Background != null && Text != null)
-                    {
-                        var CompletionPercentage = Math.random();
-                        var PercentageToDegress = Math.floor(CompletionPercentage * 360);
-                        
-                        $(Progress).attr("d", MakeArc(GraphX, GraphY, 100, GraphStartPoint, 0, PercentageToDegress));
-                        $(Background).attr("d", MakeArc(GraphX, GraphY, 100, GraphStartPoint, PercentageToDegress, 360));
-                        $(Text).html(Math.floor(CompletionPercentage * 100));
-                    }            
-                }); 
+                    id:         $(child).attr("id"),
+                    percentage: percentage,
+                    radius:     115,
+                    width:      30,
+                    number:   	percentage,
+                    text:       '%',
+                    colors:     colors[0]
+                });			
             });
-        
+
         </script>
         
 	</head>
@@ -113,16 +85,21 @@
 			</div>
 		</div>   
         
-        <div class="circles-wrp" style="position:relative; display:inline-block;">
-            <svg width="230" height="230">
-                <path fill="none" stroke="#eaecec" stroke-width="30"></path>
-                <path fill="none" stroke="#ee4332" stroke-width="30"></path>
-            </svg>
-            <div class="circles-text-wrp" style="position:absolute; top:0; left:0; text-align:center; width:100%; font-size:80.5px; height:230px; line-height:230px;">
-                <span class="circles-number">5</span>
-                <span class="circles-text">%</span>
+        <div class="container">  
+            <div class="buttons">
+                <h3>  
+                    Digs 
+                </h3>
+                
+                <div class="button-top">
+                    <div class="button-1">
+                        <div class="rounded">
+                            <div class="every" id="circles-1"> </div>
+                        </div>
+                    </div>  
+                </div>
             </div>
         </div>
- 
+        
     </body>
 </html>
