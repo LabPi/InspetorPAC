@@ -2750,8 +2750,8 @@ span.circles-text {
 /*----*/
 .widget2 {
     float: left;
-    width: 37%;
-        background-color: #fff;
+    /* width: 37%; */
+    background-color: #fff;
     border-radius: 5px;
 }
 .widget2 h4{
@@ -5579,7 +5579,7 @@ ul.callbacks_tabs {
 }
 .product-box1 {
     float: left;
-    width: 31.3%;
+    /* width: 31.3%; */
      margin-right: 3%;
 }
 .product-box1:nth-child(3) {

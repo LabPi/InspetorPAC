@@ -25,19 +25,30 @@
                     ['#eaecec', '#2fc26e']
                 ];
                                     
-                var child = $("#circles-1");
-                var percentage = Math.floor(Math.random() * 100);
-                                                
-                Circles.create(
+                for(var i = 1; i <= 4; i++)
                 {
-                    id:         $(child).attr("id"),
-                    percentage: percentage,
-                    radius:     115,
-                    width:      30,
-                    number:   	percentage,
-                    text:       '%',
-                    colors:     colors[0]
-                });			
+                    var child = $('#circles-' + i);
+                    var percentage = Math.floor(Math.random() * 100);
+                                                    
+                    Circles.create(
+                    {
+                        id:         $(child).attr("id"),
+                        percentage: percentage,
+                        radius:     115,
+                        width:      30,
+                        number:   	percentage,
+                        text:       '%',
+                        colors:     colors[ i - 1 ]
+                    });	
+                }
+                
+                $( "span.nav" ).click(function() 
+                {
+				    $( "ul.top-nav" ).slideToggle("slow", function() 
+                    {
+					    // Animation complete.
+                    });
+                });		
             });
 
         </script>
@@ -57,14 +68,6 @@
 						<span class="nav">
 							<i class="fa fa-bars"> </i>
 						</span>
-						<script>
-							$( "span.nav" ).click(function() {
-							  $( "ul.top-nav" ).slideToggle("slow", function() {
-								// Animation complete.
-							  });
-							});
-						</script>
-
 						<ul class="top-nav" >
 							<li>
                                 <a href="index.html"> Principal </a>
@@ -77,26 +80,27 @@
                             </li>  
 						</ul>
 					</div>
-					
 					<div class="clearfix"> </div>
 				</div>
-				
 				<div class="clearfix"> </div>
 			</div>
 		</div>   
         
-        <div class="container">  
-            <div class="buttons">
-                <h3>  
-                    Digs 
-                </h3>
-                
-                <div class="button-top">
-                    <div class="button-1">
-                        <div class="rounded">
-                            <div class="every" id="circles-1"> </div>
-                        </div>
-                    </div>  
+        <div class="container">
+            <div class="widget1">
+                <div class="widget2">
+                    <h4>
+                        Digs
+                    </h4>        
+                    <div class="wid1">                       
+                        <div class="wid2">
+                            <div class="button-1">
+                                <div class="rounded">
+                                    <div id="circles-1"> </div>
+                                </div>
+                            </div>
+                        </div>         
+                   </div>
                 </div>
             </div>
         </div>
