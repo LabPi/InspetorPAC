@@ -7824,7 +7824,7 @@ h3.app{
     }
     .banner-top, .banner-top1, .banner-top2, .banner-top3, .banner-top4, .banner-top5, .banner-top6, .banner-top7 {
         height: 240px;
-        margin: 1.5em 0 0;
+        margin: 0;
     }
     .banner-matter {
         padding: 1.8em 1em;
