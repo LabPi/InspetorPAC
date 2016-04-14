@@ -3550,7 +3550,6 @@ a.reply i:hover {
   	font-size: 1em;
   	color: #000;
   	padding: 0.7em 1em;
-  	width: 76%;
   	border: none;
   	outline: none;
   	background: none;
@@ -7078,8 +7077,13 @@ h3.app{
     .input-top-mid13 input[type="text"] {
         width: 47%;
     }
+    .date-picker1 ul li {
+	width: 90% !important;
+	margin: 0 auto 5px 0;
+    }
     .date-picker1 ul li select {
         padding: 10px 26px 10px 10px;
+        width: 100%;
     }
     .date-picker7 ul li select {
         padding: 11px 28px 10px 10px;
