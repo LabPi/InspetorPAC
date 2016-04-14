@@ -38,6 +38,12 @@
 				$(".novo-filtro").click(function() {
 					$(".filtro:first-of-type").clone().insertAfter(".filtro:last-of-type");
 				});
+				
+				$( "span.nav" ).click(function() {
+					$( "ul.top-nav" ).slideToggle( "slow", function() {
+						// Animation complete.
+					});
+				});
 			});
 		</script>
 	</head>
