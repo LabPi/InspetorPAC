@@ -2753,7 +2753,7 @@ span.circles-text {
     width: 27%;
     background-color: #fff;
     border-radius: 5px;
-    margin: 0 0.5%;
+    margin: 0 0.5% 0.5% 0.5%;
 }
 .widget2 h4{
        background-color: #454c4d;
@@ -2806,7 +2806,7 @@ span.circles-text {
     width: 35%;
     background: #fff;
     border-radius: 5px;
-    margin: 0 0.5%;
+    margin: 0 0.5% 0.5% 0.5%;
 }
 .your-file1 i{
 	color:#888d8d;
