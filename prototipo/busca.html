@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        
+        	<meta charset="utf-8" />
+        	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+		<title> Busca - Inspetor PAC </title>
+		
+		<link href="css/bootstrap.css" rel="stylesheet" />
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		
+		<style type="text/css">
+			#novo_filtro, #botao_busca {
+				text-align: center;
+				margin-top: 25px;
+			}
+			
+			.searchp {
+				width: auto !important;
+				margin: 0 !important;
+			}
+			
+			.filtro {
+				width: 58%;
+				margin: 10px auto 10px auto;
+				text-align: center;
+				background-color: #ccc;
+				padding: 5px;
+			}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$("document").ready(function(){
+				$(".novo-filtro").click(function() {
+					$(".filtro:first-of-type").clone().insertAfter(".filtro:last-of-type");
+				});
+			});
+		</script>
+	</head>
+    <body>
+        <div class="full-navigation1 full-navigation2">
+			<div class="container">
+				<div class="full-navigation-left full-navigation-left-one">
+					<a href="#">
+                        <img src="images/lo.png" alt="" />
+                    </a>
+				</div>
+				
+				<div class="full-navigation-right">
+					<div class="full-navigation-right2">
+						<span class="nav">
+							<i class="fa fa-bars"> </i>
+						</span>
+						<ul class="top-nav" >
+							<li>
+                                <a href="index.html"> Principal </a>
+                            </li>                                             
+							<li>
+                                <a href="#"> Busca </a>
+                            </li>
+							<li>
+                                <a> Estatísticas </a>
+                            </li>  
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>   
+        
+        <div class="container">
+			<div id="novo_filtro">
+				<button type="button" class="btn-l novo-filtro">+ Novo Filtro</button>
+			</div>
+			
+			<form action="index.html#map">
+				<div class="date-picker1">
+					<ul class="filtro">
+						<li>
+							<select class="drop-date">
+								<option>Escolha o campo...</option>
+								<option>Estado</option>
+								<option>Estágio</option>
+								<option>Executor</option>
+								<option>Tipo</option>
+							</select>
+						</li>
+						<li>
+							<select class="drop-date">
+								<option>Escolha o filtro...</option>
+								<option>É igual a</option>
+								<option>É diferente de</option>
+								<option>É maior que</option>
+								<option>É menor que</option>
+							</select>
+						</li>
+						<li class="search1 search4 searchp">
+							<input value="" type="text">
+						</li>
+					</ul>
+				</div>
+				<div id="botao_busca">
+					<button type="submit" class="btn-l btn-4">Enviar Busca</button>
+				</div>
+			</form>
+        </div>
+    </body>
+</html>
