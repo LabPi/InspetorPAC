@@ -2734,6 +2734,12 @@ ul.page-mid1 {
 #circles-2{
 	padding:0 0 1em;
 }
+.circles-wrp{
+	position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .rounded1 {
     float: left;
     width: 25%;
@@ -2750,7 +2756,7 @@ span.circles-text {
 /*----*/
 .widget2 {
     float: left;
-    width: 27%;
+    width: 32.3%;
     background-color: #fff;
     border-radius: 5px;
     margin: 0 0.5% 0.5% 0.5%;
@@ -2803,7 +2809,7 @@ span.circles-text {
 }
 .widget3 {
     float: left;
-    width: 35%;
+    width: 32.3%;
     background: #fff;
     border-radius: 5px;
     margin: 0 0.5% 0.5% 0.5%;
