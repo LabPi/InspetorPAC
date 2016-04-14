@@ -2750,9 +2750,10 @@ span.circles-text {
 /*----*/
 .widget2 {
     float: left;
-    /* width: 37%; */
+    width: 27%;
     background-color: #fff;
     border-radius: 5px;
+    margin: 0 0.5%;
 }
 .widget2 h4{
        background-color: #454c4d;
@@ -2780,7 +2781,7 @@ span.circles-text {
 	font-size:1.1em;
 }
 .widget1 {
-    padding: 4em 0;
+    margin: 2em 0;
 }
 /*----*/
 .your-file{
@@ -2801,10 +2802,11 @@ span.circles-text {
     margin-left: 4%;
 }
 .widget3 {
-    float: right;
-    width: 58%;
+    float: left;
+    width: 35%;
     background: #fff;
     border-radius: 5px;
+    margin: 0 0.5%;
 }
 .your-file1 i{
 	color:#888d8d;
